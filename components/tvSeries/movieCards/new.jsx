@@ -1,29 +1,35 @@
+import Image from "next/image";
 import React from "react";
 
 const NewlyAdded = () => {
   return (
-    <div className="h-[348px] w-full flex flex-col bg-red-500 my-8">
+    <div className="h-auto min-h-[348px] w-full flex flex-col bg-red-00 my-8">
       <h1 className="text-[16px] md:text-[20px] lg:text-[25px]">Newly added</h1>
 
-      <div className="h-[307px] w-full flex gap-6 bg-amber-300">
-        <div className="h-full w-[50%] rounded-2xl bg-white">img</div>
-        <div className="h-full w-[50%] overflow-y-scroll scroll scroll-smooth scrollbar-hide  bg-green-300">
-          <h1 className="text-[20px]  md:text-[28px] font-bold text-highlight">
+      <div className="h-full w-full flex flex-col lg:flex-row gap-6 bg-amber-00">
+        <div
+          className="h-[280px] lg:h-[350px] w-full lg:w-[40%] rounded-2xl bg-white bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/gallery.jpg')",
+          }}
+        ></div>
+        <div className="h-auto lg:h-[350px] w-full lg:w-[50%] bg-green-00">
+          <h1 className="text-[20px] md:text-[28px] font-bold text-highlight">
             The Art of Second Chances
           </h1>
           <p className=" text-[15px] md:text-[17px] text-gray-300   ">
             Directed by:Sarah Bliss
           </p>
-          <p className=" text-[15px] md:text-[17px] text-gray-300 ">
+          <p className=" text-[15px] md:text-[17px] text-gray-300 mb-8">
             Cast Emily Jones, Billy Yates, Mathew Person, Romi Mclin, Thomas
             Elton
           </p>
-          <p className=" text-[15px] md:text-[17px] mb-4">
+          <p className=" text-[15px] md:text-[17px] mb-8">
             2h13min <span className="mx-0 md:mx-6">4k UHD</span>
             <span className="mx-0 md:mr-6">15%</span>
             Romantic,Funny,Bizarre
           </p>
-          <p className=" text-[15px] md:text-[17px] mb-4">
+          <p className=" text-[15px] md:text-[17px] mb-8">
             A recently divorced gallery owner abd a strulling artist find
             themselves as neighbors in a charming apartment building. As they
             navigate the ups and downs of their respective lives, they discover
