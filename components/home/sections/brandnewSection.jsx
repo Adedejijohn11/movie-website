@@ -1,4 +1,4 @@
-import MovieCard from "../movieCards/movieCard";
+import MovieCard from "../../ui/movieCards/movieCard";
 
 const BrandSection = ({ data }) => {
   return (
