@@ -1,10 +1,10 @@
 import React from "react";
-import HomeSection from "../../components/home/homeSection";
+import ProfileSection from "../../components/profile/profileSection";
 
 const page = () => {
   return (
     <div>
-      <HomeSection />
+      <ProfileSection />
     </div>
   );
 };

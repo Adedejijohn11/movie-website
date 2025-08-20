@@ -1,9 +1,9 @@
 @import "tailwindcss";
-
+@import "tailwind-scrollbar-hide/v4";
 :root {
   --background: #ffffff;
-  --foreground: #1D2731;
-  --highlight: #E4D161;
+  --foreground: #1d2731;
+  --highlight: #e4d161;
 }
 
 @theme inline {
@@ -16,9 +16,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1D2731;
+    --background: #1d2731;
     --foreground: #ededed;
-    --highlight: #E4D161;
+    --highlight: #e4d161;
   }
 }
 
@@ -26,4 +26,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.slideUp {
+  animation: slideUpAnimation 1s ease-in-out forwards;
+}
+
+@keyframes slideUpAnimation {
+  0% {
+    transform: translateY(100px);
+    filter: blur(20px);
+  }
+  100% {
+    transform: translateY(0);
+    filter: blur(0);
+  }
 }
