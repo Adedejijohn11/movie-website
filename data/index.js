@@ -76,6 +76,31 @@ export const mainMovieData = [
     name: "The America history",
     img: "/images/catImg.png",
   },
+  {
+    id: 8,
+    name: "We Live in Time",
+    img: "/images/love.jpg",
+  },
+  {
+    id: 9,
+    name: "Best hunter",
+    img: "/images/movie-2.jpg",
+  },
+  {
+    id: 10,
+    name: "The weekend",
+    img: "/images/movie-3.jpg",
+  },
+  {
+    id: 11,
+    name: "Revenge",
+    img: "/images/movie-4.jpg",
+  },
+  {
+    id: 12,
+    name: "Lost but Found",
+    img: "/images/movie-5.jpg",
+  },
 ];
 
 export const similarMovies = [
