@@ -9,7 +9,7 @@ import { mainMovieData, similarMovies } from "../../data";
 
 const page = () => {
   return (
-    <div className="min-h-screen h-auto w-full flex flex-col items-center bg-red-00">
+    <div className=" h-auto w-full flex flex-col items-center bg-red-00">
       <Header />
       <div className="h-full w-[90%] mt-5 flex flex-col ">
         {/* MovieCards */}

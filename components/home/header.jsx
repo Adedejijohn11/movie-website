@@ -41,7 +41,7 @@ const Header = () => {
 
             {/* Image data */}
             {currentIndex === index && (
-              <div className="absolute bottom-16  left-[40px] md:left-[100px] lg:left-[150px] z-50  slideUp  ">
+              <div className="absolute bottom-16  left-[40px] md:left-[100px] lg:left-[150px] z-40  slideUp  ">
                 <h1 className="text-[25px] md:text-[32px] lg:text-[60px] font-bold">
                   {item.title}
                 </h1>
@@ -56,18 +56,18 @@ const Header = () => {
       {/* Arrows */}
       <div
         onClick={handleLeftSlide}
-        className="absolute top-[60%] md:top-[48%] lg:top-[45%] left-3 md:left-5 lg:left-8 z-50"
+        className="absolute top-[60%] md:top-[48%] lg:top-[45%] left-3 md:left-5 lg:left-8 z-40"
       >
         <IoIosArrowBack />
       </div>
       <div
         onClick={handleRightSlide}
-        className="absolute top-[60%] md:top-[48%] lg:top-[45%] right-3 md:right-5 lg:right-8 z-50"
+        className="absolute top-[60%] md:top-[48%] lg:top-[45%] right-3 md:right-5 lg:right-8 z-40"
       >
         <MdArrowForwardIos />
       </div>
       {/* Dots */}
-      <div className="absolute bottom-3 w-full flex justify-center space-x-2 z-50">
+      <div className="absolute bottom-3 w-full flex justify-center space-x-2 z-40">
         {headerData.map((dot, dotindex) => (
           <div
             key={dotindex}

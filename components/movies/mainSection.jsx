@@ -3,11 +3,14 @@ import React from "react";
 const MainSection = ({ data }) => {
   return (
     <div className="h-full w-full flex flex-col bg-red-500">
-      <h1 className="text-[16px] md:text-[20px] lg:text-[25px]">
+      <h1 className="text-[16px] md:text-[20px] lg:text-[25px] pl-[20px] ">
         Brand new releases
       </h1>
 
-      <div className="h-full w-full mt-2 gap-2 lg:gap-10 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 bg-amber-300">
+      <div
+        className="h-full w-full mt-2 gap-2 lg:gap-10 grid grid-cols-3 md:grid-cols-4 
+      lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] place-items-center bg-amber-300"
+      >
         {data.map((item) => (
           <div
             key={item.id}
