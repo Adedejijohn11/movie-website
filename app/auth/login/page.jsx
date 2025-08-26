@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Login() {
   return (
     <div
@@ -22,9 +24,12 @@ export default function Login() {
             />
           </div>
 
-          <button className="h-[50px] w-[270px]  md:w-[400px]  rounded-[10px] bg-red-500 hover:bg-red-700 mt-10 text-[20px] font-bold">
+          <Link
+            href="/home"
+            className=" flex items-center justify-center h-[50px] w-[270px]  md:w-[400px]  rounded-[10px] bg-red-500 hover:bg-red-700 mt-10 text-[20px] font-bold"
+          >
             Login
-          </button>
+          </Link>
           <div className="flex justify-between w-[270px]  md:w-[400px]  mt-4">
             <div className="flex items-center">
               <input type="checkbox" />
@@ -35,7 +40,12 @@ export default function Login() {
           </div>
           <div className="flex mt-15">
             <p className="mr-1">New here?</p>
-            <p>Sign up now.</p>
+            <Link
+              className="underline hover:text-red-500"
+              href="/auth/register"
+            >
+              Sign up now
+            </Link>
           </div>
         </div>
       </div>
