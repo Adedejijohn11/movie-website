@@ -7,21 +7,21 @@ const Header = () => {
   return (
     <div
       style={{ backgroundImage: "url(/images/Bg-gallery.jpg)" }}
-      className="relative h-[500px] md:h-[550px] lg:h-[600px]  w-full bg-cover bg-center flex items-center justify-center border-b-3 border-blue-400/80 shadow-lg shadow-blue-400/50"
+      className="relative h-[600px]  w-full bg-cover bg-center flex items-center justify-center border-b-3 border-blue-400/80 shadow-lg shadow-blue-400/50"
     >
-      <div className=" absolute top-0 right-0 h-[500px] md:h-[550px] lg:h-[600px] w-full bg-black/60"></div>
-      <div className="relative h-[500px] md:h-full lg:h-[480px] w-full lg:w-[93%] z-50 flex flex-col lg:flex-row justify-between items-center ">
-        <div className="relative  h-[480px] md:h-full lg:h-[480px] w-full lg:w-[40%]  flex items-center  justify-center ">
+      <div className=" absolute top-0 right-0 h-[600px] w-full bg-black/80"></div>
+      <div className="relative h-full lg:h-[480px] w-full lg:w-[93%] z-40 flex flex-col lg:flex-row justify-between items-center ">
+        <div className="relative h-full lg:h-[480px] w-full lg:w-[40%]  flex items-center  justify-center  ">
           <Image
             src="/Images/gallery.jpg"
             alt="/"
             width={600}
             height={200}
-            className=" h-[480px] md:h-full lg:h-[480px]  w-full rounded-none lg:rounded-2xl "
+            className="h-full lg:h-[480px]  w-full rounded-none lg:rounded-2xl "
           />
         </div>
 
-        <div className=" absolute lg:static bottom-0  h-[298px] md:h-[227px] lg:h-[480px] w-full lg:w-[60%] flex justify-center items-center  bg-background lg:bg-background/0  ">
+        <div className=" absolute lg:static bottom-0  h-[440px] md:h-[310px] lg:h-[480px] w-full lg:w-[60%] flex justify-center items-center  bg-background lg:bg-background/0  ">
           <div className="flex flex-col mx-4 md:mx-10  mt-0">
             <h1 className="text-[25px] md:text-[30px] lg:text-[55px] font-bold text-highlight ">
               The Art of Second Chances

@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="h-[90px] w-full flex flex-row items-center justify-between bg-background px-[5%] relative">
+      <div className="h-[90px]  w-full flex flex-row items-center justify-between bg-background px-[5%] z-50 relative">
         {/* Logo */}
         <h1 className="text-highlight text-center text-[24px] md:text-[30px] tracking-[8px] md:tracking-[16px] font-bold">
           CINEMA

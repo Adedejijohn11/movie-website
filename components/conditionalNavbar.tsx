@@ -7,7 +7,12 @@ export default function ConditionalNavbar() {
   const pathname = usePathname();
 
   // Hide navbar on profile page
-  if (pathname === "/profile" || pathname === "/") {
+  if (
+    pathname === "/profile" ||
+    pathname === "/" ||
+    pathname === "/auth/login" ||
+    pathname === "/auth/register"
+  ) {
     return null;
   }
 
