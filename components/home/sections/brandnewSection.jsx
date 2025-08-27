@@ -8,7 +8,7 @@ const BrandSection = ({ data }) => {
       </h1>
 
       <div className="h-[150px] md:h-[195px] lg:h-[230px] w-full mt-2  gap-2 flex items-center overflow-x-scroll scroll  scroll-smooth scrollbar-hide  ">
-        {data.map((item) => (
+        {data?.map((item) => (
           <MovieCard key={item.id} item={item} />
         ))}
       </div>
