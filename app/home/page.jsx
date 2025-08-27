@@ -6,6 +6,7 @@ import CollectionSection from "../../components/home/sections/collectionsSection
 import FunnySection from "../../components/home/sections/FunnySection";
 import PreviousSection from "../../components/home/sections/previousSection";
 import { mainMovieData, similarMovies } from "../../data";
+// import ContinueWatching from "../../components/continueWatching/continueWatching";
 
 const page = () => {
   return (
@@ -13,6 +14,7 @@ const page = () => {
       <Header />
       <div className="h-full w-[90%] mt-5 flex flex-col ">
         {/* MovieCards */}
+        {/* <ContinueWatching /> */}
 
         {/* Brand new releases */}
         <BrandSection data={mainMovieData} />

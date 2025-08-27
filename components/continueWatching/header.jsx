@@ -39,9 +39,9 @@ const Header = () => {
               chaotic
             </p>
             <div className="flex flex-col md:flex-row  gap-2 mt-5 lg:mt-10">
-              <button className="flex items-center justify-center gap-3 px-3   md:px-10 lg:px-15 py-[12px] lg:py-[13px] font-semibold bg-blue-400 text-white text-[15px] lg:text-[18px] rounded-[10px] md:rounded-full hover:bg-blue-400/80">
+              <button className="flex flex-row items-center justify-center gap-3 px-3   md:px-10  py-[12px] lg:py-[13px] font-semibold bg-blue-400 text-white text-[15px] lg:text-[16px] xl:text-[18px] rounded-[10px] md:rounded-full hover:bg-blue-400/80">
                 <FaPlay />
-                Watch now
+                <p>Watch now</p>
               </button>
               <button className="flex items-center justify-center gap-3 px-10 lg:px-15 py-[12px] lg:py-[13px] font-semibold border-2  hover:border-amber-500 text-highlight hover:text-amber-500 text-[15px] lg:text-[18px] text-center rounded-[10px] md:rounded-full">
                 <IoMdVideocam /> Watch trailer

@@ -175,3 +175,60 @@ export const similarMovies = [
     img: "/images/movie-2.jpg",
   },
 ];
+
+export const seasonMovies = {
+  "Season 1": [
+    { id: 1, title: "Movie 1", poster: "/images/movie-2.jpg" },
+    {
+      id: 2,
+      title: "Movie 2",
+      poster: " /images/love.jpg",
+    },
+    {
+      id: 3,
+      title: "Movie 3",
+      poster: "/images/movie-3.jpg",
+    },
+  ],
+  "Season 2": [
+    {
+      id: 1,
+      title: "Movie 4",
+      poster: "/images/love.jpg",
+    },
+    {
+      id: 2,
+      title: "Movie 5",
+      poster: "/images/movie-4.jpg",
+    },
+  ],
+  "Season 3": [
+    {
+      id: 1,
+      title: "Movie 6",
+      poster: "/images/bg.6.jpg",
+    },
+    {
+      id: 2,
+      title: "Movie 7",
+      poster: "/images/theTwins.jpg",
+    },
+    {
+      id: 3,
+      title: "Movie 8",
+      poster: "/images/theTwins.jpg",
+    },
+    {
+      id: 4,
+      title: "Movie 9",
+      poster: "/images/love.jpg",
+    },
+  ],
+  "Season 4": [
+    {
+      id: 1,
+      title: "Movie 10",
+      poster: "/images/movie-3.jpg",
+    },
+  ],
+};

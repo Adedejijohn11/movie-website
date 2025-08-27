@@ -9,8 +9,8 @@ module.exports = {
       //   sm: "375px", // small
       //   smd: "425px", // small-medium
       //   md: "768px", // medium
-      //   lg: "1024px", // large
-      //   xl: "1440px", // extra large
+      lg: "1024px", // large
+      xl: "1440px", // extra large
       // },
     },
   },
