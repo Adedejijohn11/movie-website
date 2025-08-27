@@ -6,6 +6,7 @@ import { LuTvMinimalPlay } from "react-icons/lu";
 import { IoMdSearch } from "react-icons/io";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,20 +16,23 @@ const Navbar = () => {
   };
 
   const navigationItems = [
-    { href: "/", icon: TbHome, label: "Home" },
-    { href: "/", icon: LuListPlus, label: "My List" },
-    { href: "/", icon: MdLocalMovies, label: "TV Series" },
-    { href: "/", icon: LuTvMinimalPlay, label: "Movies" },
-    { href: "/", icon: IoMdSearch, label: "Search" },
+    { href: "/home", icon: TbHome, label: "Home" },
+    { href: "/home", icon: LuListPlus, label: "My List" },
+    { href: "/tvseries", icon: MdLocalMovies, label: "TV Series" },
+    { href: "/movies", icon: LuTvMinimalPlay, label: "Movies" },
+    { href: "/search", icon: IoMdSearch, label: "Search" },
   ];
 
   return (
     <>
       <div className="h-[90px]  w-full flex flex-row items-center justify-between bg-background px-[5%] z-50 relative">
         {/* Logo */}
-        <h1 className="text-highlight text-center text-[24px] md:text-[30px] tracking-[8px] md:tracking-[16px] font-bold">
-          CINEMA
-        </h1>
+
+        <Link href="/home">
+          <h1 className="text-highlight text-center text-[24px] md:text-[30px] tracking-[8px] md:tracking-[16px] font-bold">
+            CINEMA
+          </h1>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex flex-row items-center gap-4">

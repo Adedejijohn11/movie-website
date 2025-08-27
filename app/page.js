@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className=" flex flex-col h-screen w-full bg-[url('/images/sky.jpg')] bg-top bg-cover ">
@@ -12,9 +14,12 @@ export default function Home() {
           <p className="text-center lg:text-lefttext-white/70 text-2xl font-medium my-[30px]">
             Basic subscription plan for $9.99
           </p>
-          <button className="mt-4 px-18 py-[13px] font-semibold bg-blue-400 text-white text-lg rounded-full hover:bg-blue-400/80">
+          <Link
+            href="/auth/register"
+            className="mt-4 px-18 py-[13px] font-semibold bg-blue-400 text-white text-lg rounded-full hover:bg-blue-400/80"
+          >
             Sign up now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

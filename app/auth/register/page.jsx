@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { MdPersonOutline } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
@@ -27,9 +28,12 @@ export default function Register() {
       <div className="relative min-h-screen h-full w-full flex flex-col items-center justify-center bg-black/80">
         <div className=" absolute top-3 right-3 md:right-6 w-full flex justify-end items-center text-[14px] md:text-[15px] lg:text-[20px] ">
           <p className="mr-2">Already have an Account?</p>
-          <button className="border-2 border-red-500 rounded-[8px] p-[3px]">
-            Sign in
-          </button>
+          <Link
+            href="/auth/login"
+            className="border-2 border-red-500 rounded-[8px] p-[8px]"
+          >
+            Login
+          </Link>
         </div>
         <div className="h-[480px] lg:h-[550px] w-full flex flex-col items-start md:items-center   mt-8 px-2">
           <h1 className="text-4xl font-bold">Sign up</h1>
