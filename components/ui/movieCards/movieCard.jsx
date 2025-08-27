@@ -11,9 +11,6 @@ const MovieCard = ({ item }) => {
         className="h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px]  object-cover"
         src={getImageUrl(item.backdrop_path)}
         alt={item.original_title || item.title || item.original_name || item.name || 'Movie poster'}
-        onError={(e) => {
-          e.target.src = '/images/movie-placeholder.jpg'; // Fallback on error
-        }}
       />
       <div className=" absolute top-0 h-full w-full bg-black/30"></div>
       <div className="absolute top-0 z-30  h-full w-[80%] flex   justify-center items-center text-center">
