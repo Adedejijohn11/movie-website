@@ -1,4 +1,4 @@
-import MovieCard from "../../ui/movieCards/movieCard";
+import TvSeriesCard from "../../ui/Cards/tvSeriesCard";
 
 const Featured = ({ data }) => {
   return (
@@ -7,7 +7,7 @@ const Featured = ({ data }) => {
 
       <div className="h-[150px] md:h-[195px] lg:h-[230px]  w-full mt-2  gap-2 flex items-center overflow-x-scroll scroll  scroll-smooth scrollbar-hide ">
         {data.map((item) => (
-          <MovieCard key={item.id} item={item} />
+          <TvSeriesCard key={item.id} item={item} />
         ))}
       </div>
     </div>

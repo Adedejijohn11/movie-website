@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "../../components/ui/movieCards/movieCard";
+import MovieCard from "../ui/Cards/movieCard";
 
 const MainSection = ({ data }) => {
   return (

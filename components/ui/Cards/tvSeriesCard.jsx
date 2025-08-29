@@ -1,4 +1,6 @@
-const MovieCard = ({ item }) => {
+import Link from "next/link";
+
+const TvSeriesCard = ({ item }) => {
   // Construct the full TMDB image URL
   const getImageUrl = (path, size = "w500") => {
     if (!path) return "/images/movie-placeholder.jpg"; // Fallback image
@@ -6,6 +8,7 @@ const MovieCard = ({ item }) => {
   };
 
   return (
+    <Link href={`/tvseries/${item.id}`}>
     <div className="relative h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px] flex  justify-center shrink-0  rounded-[9px]  cursor-pointer overflow-hidden ">
       <img
         className="h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px]  object-cover"
@@ -29,7 +32,8 @@ const MovieCard = ({ item }) => {
         </p>
       </div>
     </div>
+    </Link>
   );
 };
 
-export default MovieCard;
+export default TvSeriesCard;
