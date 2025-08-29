@@ -17,8 +17,8 @@ const Navbar = () => {
 
   const navigationItems = [
     { href: "/home", icon: TbHome, label: "Home" },
-    { href: "/home", icon: LuListPlus, label: "My List" },
-    { href: "/tvseries", icon: MdLocalMovies, label: "TV Series" },
+    { href: "/mylist", icon: LuListPlus, label: "My List" },
+    { href: "/tvSeries", icon: MdLocalMovies, label: "TV Series" },
     { href: "/movies", icon: LuTvMinimalPlay, label: "Movies" },
     { href: "/search", icon: IoMdSearch, label: "Search" },
   ];
@@ -39,7 +39,7 @@ const Navbar = () => {
           {navigationItems.map((item, index) => {
             const IconComponent = item.icon;
             return (
-              <a
+              <Link
                 key={index}
                 href={item.href}
                 className="flex flex-row items-center text-highlight text-[16px] font-semibold hover:text-orange-500 transition-colors"
@@ -48,7 +48,7 @@ const Navbar = () => {
                   <IconComponent />
                 </span>
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </div>

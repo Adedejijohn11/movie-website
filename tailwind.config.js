@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       // screens: {
       //   xs: "320px", // extra small
-      //   sm: "375px", // small
+      // sm: "375px", // small
       //   smd: "425px", // small-medium
       //   md: "768px", // medium
       lg: "1024px", // large

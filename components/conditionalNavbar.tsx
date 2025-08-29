@@ -11,7 +11,8 @@ export default function ConditionalNavbar() {
     pathname === "/profile" ||
     pathname === "/" ||
     pathname === "/auth/login" ||
-    pathname === "/auth/register"
+    pathname === "/auth/register" ||
+    pathname === "/mylist"
   ) {
     return null;
   }

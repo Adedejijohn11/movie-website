@@ -1,4 +1,7 @@
 import React from "react";
+import Header from "../continueWatching/header";
+import MainSection from "../continueWatching/mainSection";
+import { seasonMovies } from "../../data";
 
 const ContinueWatching = () => {
   return (

@@ -11,12 +11,27 @@ import { useTMBD } from "../../contexts/TMDBContext";
 import { mainMovieData } from "../../data";
 
 const page = () => {
-  const { fetchMovies, fetchTvShows, movieData, tvData, loading, error } = useTMBD();
+  const {
+    fetchMovies,
+    fetchTvShows,
+    fetchTrending,
+    movieData,
+    tvData,
+    trendingData,
+    loading,
+    error,
+  } = useTMBD();
 
   useEffect(() => {
-    fetchMovies("/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc");
-    fetchTvShows("/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc");
-  }, [fetchMovies, fetchTvShows]);
+    fetchMovies(
+      "/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
+    );
+    fetchTvShows(
+      "/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
+    );
+    fetchTrending("/trending/movie/day?language=en-US");
+    // fetchNowPlaying("");
+  }, [fetchMovies, fetchTvShows, fetchTrending]);
 
   if (loading) {
     return (
@@ -39,18 +54,16 @@ const page = () => {
       <Header />
       <div className="h-full w-[90%] mt-5 flex flex-col ">
         {/* MovieCards */}
-        {/* <ContinueWatching /> */}
-
         {/* Brand new releases */}
         <BrandSection data={movieData} />
         {/* Continue Watching */}
-        {/* <ContinueSection data={mainMovieData} /> */}
+        {/* <ContinueSection data={nowPlayingData} /> */}
         {/* Collections */}
-        {/* <CollectionSection data={mainMovieData} /> */}
+        <CollectionSection />
         {/* Funny Tv Shows */}
         <FunnySection data={tvData} />
         {/* Based on your previous watches */}
-        {/* <PreviousSection data={mainMovieData} /> */}
+        <PreviousSection data={trendingData} />
       </div>
     </div>
   );

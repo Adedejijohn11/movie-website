@@ -1,9 +1,6 @@
 import Link from "next/link";
 
 export default function Home() {
-  const { openMenu } = useLOCALCONTEXT();
-
-
   return (
     <div className=" flex flex-col h-screen w-full bg-[url('/images/sky.jpg')] bg-top bg-cover ">
       <div className=" h-[75%] w-full bg-gray-800/80 border-b-3 border-x-3 border-blue-400/80 rounded-b-[100px] shadow-lg shadow-blue-400/50 flex items-center justify-center lg:justify-start px-0 md:px-[100px] ">
