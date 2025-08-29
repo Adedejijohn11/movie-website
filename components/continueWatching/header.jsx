@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <div
-      style={{ backgroundImage: "url(getImageUrl(movieDetailsData?.backdrop_path))" }}
+      style={{ backgroundImage: `url(${getImageUrl(movieDetailsData?.backdrop_path)})`} }
       className="relative h-[500px] md:h-[550px]  w-full bg-cover bg-center flex items-center justify-center border-b-3 border-blue-400/80 shadow-lg shadow-blue-400/50"
     >
       <div className=" absolute top-0 right-0 h-[500px] md:h-[550px] w-full bg-black/60"></div>
