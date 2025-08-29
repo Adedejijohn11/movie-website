@@ -11,7 +11,7 @@ const page = () => {
   const params = useParams();
   const { id } = params;
 
-  log
+
 
   useEffect(() => {
     fetchMovieDetails(`/movie/${id}`);
