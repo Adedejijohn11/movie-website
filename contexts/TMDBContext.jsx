@@ -19,6 +19,7 @@ export const TMDBProvider = ({ children }) => {
   const [similarMoviesData, setSimilarMoviesData] = useState([]);
   const [movieDetailsData, setMovieDetailsData] = useState([]);
   const [topRatedData, setTopRatedData] = useState([]);
+  const [seriesDetailsData, setSeriesDetailsData] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -143,36 +144,6 @@ export const TMDBProvider = ({ children }) => {
     }
   }, []);
 
-  // Movies Details
-  const fetchMovieDetails = useCallback(async (endpoint) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${BASE_URL}${endpoint}`, {
-        params: {
-          api_key: API_KEY,
-        },
-      });
-
-      setMovieDetailsData(response?.data);
-      setError(null);
-    } catch (err) {
-      console.log("An error occurred");
-      if (err.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        setError(err.response.data.status_message || "Failed to fetch data");
-      } else if (err.request) {
-        // The request was made but no response was received
-        setError("No response received from server");
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        setError(err.message || "An error occurred");
-      }
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
   // Top Rated
   const fetchTopRated = useCallback(async (endpoint) => {
     setLoading(true);
@@ -203,9 +174,65 @@ export const TMDBProvider = ({ children }) => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   fetchMovies("/movie/popular");
-  // }, [fetchMovies]);
+  // Movies Details
+  const fetchMovieDetails = useCallback(async (endpoint) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${BASE_URL}${endpoint}`, {
+        params: {
+          api_key: API_KEY,
+        },
+      });
+
+      setMovieDetailsData(response?.data);
+      setError(null);
+    } catch (err) {
+      console.log("An error occurred");
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(err.response.data.status_message || "Failed to fetch data");
+      } else if (err.request) {
+        // The request was made but no response was received
+        setError("No response received from server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError(err.message || "An error occurred");
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  // SeriesDetails
+  const fetchSeriesDetails = useCallback(async (endpoint) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${BASE_URL}${endpoint}`, {
+        params: {
+          api_key: API_KEY,
+        },
+      });
+
+      setSeriesDetailsDataa(response?.data);
+      setError(null);
+    } catch (err) {
+      console.log("An error occurred");
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(err.response.data.status_message || "Failed to fetch data");
+      } else if (err.request) {
+        // The request was made but no response was received
+        setError("No response received from server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError(err.message || "An error occurred");
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <TMDBContext.Provider
@@ -224,6 +251,8 @@ export const TMDBProvider = ({ children }) => {
         fetchTopRated,
         fetchMovieDetails,
         movieDetailsData,
+        fetchSeriesDetails,
+        seriesDetailsData,
       }}
     >
       {children}

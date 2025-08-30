@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { similarMovies } from "../../data";
 import Header from "../../components/movies/header";
 import MainSection from "../../components/movies/mainSection";
 import { useTMBD } from "../../contexts/TMDBContext";

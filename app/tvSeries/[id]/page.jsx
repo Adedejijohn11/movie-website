@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect } from "react";
-import ContinueWatching from "../../../components/continueWatching/continueWatching";
+import Header from "../../../components/tvSeries/seriesDetails/header";
+import MainSection from "../../../components/tvSeries/seriesDetails/mainSection";
 import { useTMBD } from "../../../contexts/TMDBContext";
 import { useParams } from "next/navigation";
 
 const page = () => {
-  const { fetchMovieDetails, movieDetailsData, loading, error } = useTMBD();
+  const { fetchSeriesDetails, seriesDetailsData, loading, error } = useTMBD();
   const params = useParams();
   const { id } = params;
 
@@ -15,16 +16,17 @@ const page = () => {
   console.log("====================================");
 
   useEffect(() => {
-    fetchMovieDetails(`/movie/${id}`);
-  }, [fetchMovieDetails]);
+    fetchSeriesDetails(`/tvSeries/${id}`);
+  }, [fetchSeriesDetails]);
 
   console.log("====================================");
-  console.log(movieDetailsData);
+  console.log(seriesDetailsData);
   console.log("====================================");
 
   return (
     <div>
-      <ContinueWatching />
+      <Header />
+      <MainSection />
     </div>
   );
 };
