@@ -13,13 +13,14 @@ const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const TMDBProvider = ({ children }) => {
-  const [movieData, setMovieData] = useState([]);
-  const [tvData, setTvData] = useState([]);
-  const [trendingData, setTrendingData] = useState([]);
-  const [similarMoviesData, setSimilarMoviesData] = useState([]);
-  const [movieDetailsData, setMovieDetailsData] = useState([]);
-  const [topRatedData, setTopRatedData] = useState([]);
-  const [seriesDetailsData, setSeriesDetailsData] = useState([]);
+  const [movieData, setMovieData] = useState(null);
+  const [tvData, setTvData] = useState(null);
+  const [trendingData, setTrendingData] = useState(null);
+  const [similarMoviesData, setSimilarMoviesData] = useState(null);
+  const [movieDetailsData, setMovieDetailsData] = useState(null);
+  const [topRatedData, setTopRatedData] = useState(null);
+  const [seriesDetailsData, setSeriesDetailsData] = useState({});
+  const [searchMoviesData, setSearchMoviesData] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -212,9 +213,39 @@ export const TMDBProvider = ({ children }) => {
         params: {
           api_key: API_KEY,
         },
+      });      
+
+      setSeriesDetailsData(response?.data);
+      setError(null);
+    } catch (err) {
+      console.log("An error occurred");
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        setError(err.response.data.status_message || "Failed to fetch data");
+      } else if (err.request) {
+        // The request was made but no response was received
+        setError("No response received from server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setError(err.message || "An error occurred");
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  // SearchMovies
+  const searchMovies = useCallback(async (endpoint) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${BASE_URL}${endpoint}`, {
+        params: {
+          api_key: API_KEY,
+        },
       });
 
-      setSeriesDetailsDataa(response?.data);
+      setSearchMoviesData(response?.data?.results);
       setError(null);
     } catch (err) {
       console.log("An error occurred");
@@ -253,6 +284,8 @@ export const TMDBProvider = ({ children }) => {
         movieDetailsData,
         fetchSeriesDetails,
         seriesDetailsData,
+        searchMovies,
+        searchMoviesData
       }}
     >
       {children}
