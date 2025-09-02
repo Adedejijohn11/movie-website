@@ -216,8 +216,7 @@ export default function Search() {
             ))}
           </div>
        
-
-              {searchMoviesData.length === 0 && <div className="text-center py-16">
+            {searchMoviesData.length === 0 && <div className="text-center py-16">
             <IoMdSearch className="h-24 w-24 text-gray-600 mx-auto mb-6" />
             <h2 className="text-2xl font-semibold text-gray-400 mb-2">
               Start Your Search
