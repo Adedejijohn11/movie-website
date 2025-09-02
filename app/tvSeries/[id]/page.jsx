@@ -25,8 +25,6 @@ const page = () => {
 
   return (
     <div>
-      <h1>TV Series Details</h1>
-    
       <Header />
       <MainSection />
     </div>
