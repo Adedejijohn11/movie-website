@@ -8,7 +8,7 @@ const TvSeriesCard = ({ item }) => {
   };
 
   return (
-    <Link href={`/tvSeries/${item.id}`}>
+    <Link href={`/tvseries/${item.id}`}>
       <div className="relative h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px] flex  justify-center shrink-0  rounded-[9px]  cursor-pointer overflow-hidden ">
         <img
           className="h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px]  object-cover"

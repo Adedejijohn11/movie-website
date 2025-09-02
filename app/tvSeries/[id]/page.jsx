@@ -16,7 +16,7 @@ const page = () => {
   console.log("====================================");
 
   useEffect(() => {
-    fetchSeriesDetails(`/tvSeries/${id}`);
+    fetchSeriesDetails(`/tv/${id}`);
   }, [fetchSeriesDetails]);
 
   console.log("====================================");
@@ -25,6 +25,8 @@ const page = () => {
 
   return (
     <div>
+      <h1>TV Series Details</h1>
+    
       <Header />
       <MainSection />
     </div>

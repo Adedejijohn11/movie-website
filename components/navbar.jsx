@@ -18,7 +18,7 @@ const Navbar = () => {
   const navigationItems = [
     { href: "/home", icon: TbHome, label: "Home" },
     { href: "/mylist", icon: LuListPlus, label: "My List" },
-    { href: "/tvSeries", icon: MdLocalMovies, label: "TV Series" },
+    { href: "/tvseries", icon: MdLocalMovies, label: "TV Series" },
     { href: "/movies", icon: LuTvMinimalPlay, label: "Movies" },
     { href: "/search", icon: IoMdSearch, label: "Search" },
   ];
