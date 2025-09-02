@@ -208,14 +208,16 @@ export default function Search() {
 
       {/* Search Results */}
       <div className="max-w-7xl mx-auto px-4 pb-12">
-        {searchMoviesData ? (
+      
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {searchMoviesData.map((item) => (
+            
+            {searchMoviesData?.map((item) => (
               <SearchCard key={item.id} item={item} />
             ))}
           </div>
-        ) : (
-          <div className="text-center py-16">
+       
+
+              {searchMoviesData.length === 0 && <div className="text-center py-16">
             <IoMdSearch className="h-24 w-24 text-gray-600 mx-auto mb-6" />
             <h2 className="text-2xl font-semibold text-gray-400 mb-2">
               Start Your Search
@@ -223,8 +225,7 @@ export default function Search() {
             <p className="text-gray-500">
               Enter a movie, TV show, or person's name to get started
             </p>
-          </div>
-        )}
+          </div>}
 
         {/* Load More Button */}
         {/* {searchQuery && (
