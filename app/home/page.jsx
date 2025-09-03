@@ -5,8 +5,8 @@ import Header from "../../components/home/header";
 import BrandSection from "../../components/home/sections/brandnewSection";
 import ContinueSection from "../../components/home/sections/continueSection";
 import CollectionSection from "../../components/home/sections/collectionsSection";
-import FunnySection from "../../components/home/sections/FunnySection";
-import PreviousSection from "../../components/home/sections/previousSection";
+import TvSection from "../../components/home/sections/tvSection";
+import TrendingSection from "../../components/home/sections/trendingSection";
 import { useTMBD } from "../../contexts/TMDBContext";
 import { mainMovieData } from "../../data";
 
@@ -61,9 +61,9 @@ const page = () => {
         {/* Collections */}
         <CollectionSection />
         {/* Funny Tv Shows */}
-        <FunnySection data={tvData} />
+        <TvSection data={tvData} />
         {/* Based on your previous watches */}
-        <PreviousSection data={trendingData} />
+        <TrendingSection data={trendingData} />
       </div>
     </div>
   );

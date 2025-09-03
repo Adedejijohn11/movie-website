@@ -1,6 +1,6 @@
 import MovieCard from "../../ui/Cards/movieCard";
 
-const PreviousSection = ({ data }) => {
+const TrendingSection = ({ data }) => {
   return (
     <div className="h-[188px] md:h-[238px] lg:h-[278px] w-full flex flex-col ">
       <h1 className="text-[16px] md:text-[20px] lg:text-[25px]">Trending</h1>
@@ -14,4 +14,4 @@ const PreviousSection = ({ data }) => {
   );
 };
 
-export default PreviousSection;
+export default TrendingSection;

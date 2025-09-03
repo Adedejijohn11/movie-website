@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Header from "../../../components/tvSeries/seriesDetails/header";
-import MainSection from "../../../components/tvSeries/seriesDetails/mainSection";
+import Header from "../../../components/details/TvseriesDetails/header";
+import MainSection from "../../../components/details/TvseriesDetails/mainSection";
 import { useTMBD } from "../../../contexts/TMDBContext";
-import { useParams,  } from "next/navigation";
+import { useParams } from "next/navigation";
 
 const page = () => {
   const { fetchSeriesDetails, seriesDetailsData, loading, error } = useTMBD();
@@ -12,7 +12,6 @@ const page = () => {
   const params = useParams();
 
   const { id } = params;
-
 
   useEffect(() => {
     fetchSeriesDetails(`/tv/${id}`);

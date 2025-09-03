@@ -11,10 +11,17 @@ import SearchCard from "../../components/ui/Cards/searchCard";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState("all");
-  const [showFilters, setShowFilters] = useState(false);
+  // const [selectedFilter, setSelectedFilter] = useState("all");
+  // const [showFilters, setShowFilters] = useState(false);
 
-  const { searchMovies, searchMoviesData, loading, error } = useTMBD();
+  const {
+    searchMovies,
+    searchMoviesData,
+    SearchTv,
+    searchTvData,
+    loading,
+    error,
+  } = useTMBD();
 
   const filters = [
     { id: "all", label: "All" },
@@ -79,13 +86,19 @@ export default function Search() {
   ];
 
   const handleSearch = (e) => {
-      e.preventDefault();
-      searchMovies(`/search/movie?query=${searchQuery}`);
+    e.preventDefault();
+    searchMovies(`/search/movie?query=${searchQuery}`);
+    SearchTv(`/search/tv?query=${searchQuery}`);
   };
 
-    console.log("====================================");
-    console.log(searchMoviesData);
-    console.log("====================================");
+  console.log("====================================");
+  console.log("Movies:", searchMoviesData);
+  console.log("====================================");
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   searchMovies(`/search/movie?query=${searchQuery}`);
+  // };
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,7 +127,12 @@ export default function Search() {
             placeholder="Search for movies, TV shows, people..."
             className="w-[90%] pl-12 pr-4 py-4 bg-gray-800/50 text-white placeholder-gray-400 focus:outline-none text-lg"
           />
-          <button className="w-[100px] h-[60px] bg-gray-400 text-white" onClick={handleSearch}>Search</button>
+          <button
+            className="w-[100px] h-[60px] bg-gray-400 text-white"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
 
         {/* Filter Toggle */}
@@ -208,15 +226,33 @@ export default function Search() {
 
       {/* Search Results */}
       <div className="max-w-7xl mx-auto px-4 pb-12">
-      
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            
-            {searchMoviesData?.map((item) => (
-              <SearchCard key={item.id} item={item} />
-            ))}
-          </div>
-       
-            {searchMoviesData.length === 0 && <div className="text-center py-16">
+        {/* searchMovies */}
+        {searchMoviesData?.length === 0 ? (
+          ""
+        ) : (
+          <h1 className="text-2xl mb-8">Movies</h1>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {searchMoviesData?.map((item) => (
+            <SearchCard key={item.id} item={item} />
+          ))}
+        </div>
+        {/* SearchTV */}
+
+        {searchTvData?.length === 0 ? (
+          ""
+        ) : (
+          <h1 className="text-2xl my-8">Tv shows </h1>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {searchTvData?.map((item) => (
+            <SearchCard key={item.id} item={item} />
+          ))}
+        </div>
+
+        {searchMoviesData?.length === 0 && searchTvData?.length === 0 && (
+          <div className="text-center py-16">
             <IoMdSearch className="h-24 w-24 text-gray-600 mx-auto mb-6" />
             <h2 className="text-2xl font-semibold text-gray-400 mb-2">
               Start Your Search
@@ -224,7 +260,8 @@ export default function Search() {
             <p className="text-gray-500">
               Enter a movie, TV show, or person's name to get started
             </p>
-          </div>}
+          </div>
+        )}
 
         {/* Load More Button */}
         {/* {searchQuery && (

@@ -4,15 +4,16 @@ import React from "react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 import { IoMdVideocam } from "react-icons/io";
-import { useTMBD } from "../../contexts/TMDBContext";
+import { useTMBD } from "../../../contexts/TMDBContext";
+import { getImageUrl } from "../../../lib/randfunctions";
 
 const Header = () => {
   const { movieDetailsData, loading, error } = useTMBD();
   // Construct the full TMDB image URL
-  const getImageUrl = (path, size = "w500") => {
-    if (!path) return "/images/movie-placeholder.jpg"; // Fallback image
-    return `https://image.tmdb.org/t/p/${size}${path}`;
-  };
+  // const getImageUrl = (path, size = "w500") => {
+  //   if (!path) return "/images/movie-placeholder.jpg"; // Fallback image
+  //   return `https://image.tmdb.org/t/p/${size}${path}`;
+  // };
 
   return (
     <div

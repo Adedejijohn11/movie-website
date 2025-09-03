@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Header from "../continueWatching/header";
-import MainSection from "../continueWatching/mainSection";
-import { seasonMovies } from "../../data";
-import { useTMBD } from "../../contexts/TMDBContext";
+import Header from "./header";
+import MainSection from "./mainSection";
+// import { seasonMovies } from "../../../data";
+import { useTMBD } from "../../../contexts/TMDBContext";
 
-const ContinueWatching = () => {
+const Details = () => {
   const { fetchSimilarMovies, similarMoviesData, loading, error } = useTMBD();
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const ContinueWatching = () => {
   );
 };
 
-export default ContinueWatching;
+export default Details;

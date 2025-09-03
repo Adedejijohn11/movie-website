@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { getImageUrl } from "../../../lib/randfunctions";
 
 const TvSeriesCard = ({ item }) => {
   // Construct the full TMDB image URL
-  const getImageUrl = (path, size = "w500") => {
-    if (!path) return "/images/movie-placeholder.jpg"; // Fallback image
-    return `https://image.tmdb.org/t/p/${size}${path}`;
-  };
+  // const getImageUrl = (path, size = "w500") => {
+  //   if (!path) return "/images/movie-placeholder.jpg"; // Fallback image
+  //   return `https://image.tmdb.org/t/p/${size}${path}`;
+  // };
 
   return (
     <Link href={`/tvseries/${item.id}`}>
