@@ -10,7 +10,7 @@ import TrendingSection from "../../components/home/sections/trendingSection";
 import { useTMBD } from "../../contexts/TMDBContext";
 import { mainMovieData } from "../../data";
 
-const page = () => {
+const Home = () => {
   const {
     fetchMovies,
     fetchTvShows,
@@ -51,6 +51,7 @@ const page = () => {
 
   return (
     <div className=" h-auto w-full flex flex-col items-center bg-red-00">
+      <h1>Welcome to the Home Page</h1>
       <Header />
       <div className="h-full w-[90%] mt-5 flex flex-col ">
         {/* MovieCards */}
@@ -69,4 +70,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Home;

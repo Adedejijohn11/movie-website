@@ -64,3 +64,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 This is a movie site, it's an MVP movie website built for 
 learing popurse but it has the major functionalities.
+
+
