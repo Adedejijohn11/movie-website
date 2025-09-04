@@ -95,11 +95,6 @@ export default function Search() {
   console.log("Movies:", searchMoviesData);
   console.log("====================================");
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   searchMovies(`/search/movie?query=${searchQuery}`);
-  // };
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header Section */}
@@ -235,7 +230,7 @@ export default function Search() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {searchMoviesData?.map((item) => (
-            <SearchCard key={item.id} item={item} />
+            <SearchCard key={item.id} type={"movies"} item={item} />
           ))}
         </div>
         {/* SearchTV */}
@@ -247,7 +242,7 @@ export default function Search() {
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {searchTvData?.map((item) => (
-            <SearchCard key={item.id} item={item} />
+            <SearchCard key={item.id} type={"tvseries"} item={item} />
           ))}
         </div>
 

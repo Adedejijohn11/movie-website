@@ -9,7 +9,6 @@ export default function Subscriptions() {
           <p className="place-self-center">Basic</p>
           <p className="text-4xl font-bold mt-[10px]">$9.99/Monthly</p>
           <ul className="mt-4 text-left text-[16px] font-light text-inherit">
-            {" "}
             <li className="mb-2">- 1 Seat</li>
             <li className="mb-2">- Good video quality</li>
             <li className="mb-2">- No ads</li>
