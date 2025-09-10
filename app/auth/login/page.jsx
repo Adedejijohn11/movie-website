@@ -3,10 +3,10 @@ import Link from "next/link";
 export default function Login() {
   return (
     <div
-      style={{
-        backgroundImage: "url('/images/login-bg.jpg')",
-      }}
-      className="min-h-screen h-auto w-full  bg-cover bg-center bg-no-repeat"
+      // style={{
+      //   backgroundImage: "url('/images/login-bg.jpg')",
+      // }}
+      className="min-h-screen h-auto w-full  "
     >
       <div className="min-h-screen h-full w-full flex items-center justify-center bg-black/80">
         <div className="h-[500px] md:h-[550px] w-[95%] md:w-[70%] flex flex-col items-center bg-black/70 border-3 border-blue-400/80 rounded-[20px] shadow-lg shadow-blue-400/50">
@@ -25,7 +25,7 @@ export default function Login() {
           </div>
 
           <Link
-            href="/home"
+            href="/profile"
             className=" flex items-center justify-center h-[50px] w-[270px]  md:w-[400px]  rounded-[10px] bg-red-500 hover:bg-red-700 mt-10 text-[20px] font-bold"
           >
             Login

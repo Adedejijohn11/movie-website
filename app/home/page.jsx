@@ -1,20 +1,19 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Header from "../../components/home/header";
-import BrandSection from "../../components/home/sections/brandnewSection";
-import ContinueSection from "../../components/home/sections/continueSection";
-import CollectionSection from "../../components/home/sections/collectionsSection";
-import TvSection from "../../components/home/sections/tvSection";
-import TrendingSection from "../../components/home/sections/trendingSection";
-import { useTMBD } from "../../contexts/TMDBContext";
-import { mainMovieData } from "../../data";
+// import React, { useEffect } from "react";
+import Header from "@/components/home/header";
+import BrandSection from "@/components/home/sections/brandnewSection";
+// import ContinueSection from "@/components/home/sections/continueSection";
+import CollectionSection from "@/components/home/sections/collectionsSection";
+import TvSection from "@/components/home/sections/tvSection";
+import TrendingSection from "@/components/home/sections/trendingSection";
+import { useTMBD } from "@/contexts/TMDBContext";
 
 const Home = () => {
   const {
-    fetchMovies,
-    fetchTvShows,
-    fetchTrending,
+    // fetchMovies,
+    // fetchTvShows,
+    // fetchTrending,
     movieData,
     tvData,
     trendingData,
@@ -22,16 +21,17 @@ const Home = () => {
     error,
   } = useTMBD();
 
-  useEffect(() => {
-    fetchMovies(
-      "/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
-    );
-    fetchTvShows(
-      "/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
-    );
-    fetchTrending("/trending/movie/day?language=en-US");
-    // fetchNowPlaying("");
-  }, [fetchMovies, fetchTvShows, fetchTrending]);
+  // console.log("tv Data:", tvData);
+
+  // useEffect(() => {
+  //   fetchMovies(
+  //     "/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
+  //   );
+  //   fetchTvShows(
+  //     "/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
+  //   );
+  //   fetchTrending("/trending/movie/day?language=en-US");
+  // }, [fetchMovies, fetchTvShows, fetchTrending]);
 
   if (loading) {
     return (
@@ -51,19 +51,16 @@ const Home = () => {
 
   return (
     <div className=" h-auto w-full flex flex-col items-center bg-red-00">
-      <h1>Welcome to the Home Page</h1>
+      {/* <h1>Welcome to the Home Page</h1> */}
       <Header />
-      <div className="h-full w-[90%] mt-5 flex flex-col ">
+
+      {/* mainSection */}
+      <div className="h-full w-[98%] md:w-[95%] lg:w-[90%] mt-5 flex flex-col ">
         {/* MovieCards */}
-        {/* Brand new releases */}
         <BrandSection data={movieData} />
-        {/* Continue Watching */}
         {/* <ContinueSection data={nowPlayingData} /> */}
-        {/* Collections */}
         <CollectionSection />
-        {/* Funny Tv Shows */}
         <TvSection data={tvData} />
-        {/* Based on your previous watches */}
         <TrendingSection data={trendingData} />
       </div>
     </div>

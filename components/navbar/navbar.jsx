@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="h-[90px]  w-full flex flex-row items-center justify-between bg-background px-[5%] z-50 relative">
+      <div className="h-[90px] w-full flex flex-row items-center justify-between bg-background px-[5%] z-50 relative ">
         {/* Logo */}
 
         <Link href="/home">
@@ -35,7 +35,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex flex-row items-center gap-4">
+        <div className="hidden lg:flex flex-row items-center gap-4 ">
           {navigationItems.map((item, index) => {
             const IconComponent = item.icon;
             return (
@@ -79,7 +79,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed top-[90px] right-0 h-[calc(100vh-90px)] w-[280px] bg-background border-l border-gray-800 transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`lg:hidden fixed top-[90px] right-0 h-[calc(100vh)] w-[280px] bg-background border-l border-gray-800 transform transition-transform duration-300 ease-in-out z-50 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

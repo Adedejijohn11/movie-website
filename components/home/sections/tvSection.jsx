@@ -1,4 +1,4 @@
-import TvSeriesCard from "../../ui/Cards/tvSeriesCard";
+import TvSeriesCard from "@/components/ui/Cards/tvSeriesCard";
 
 const TvSection = ({ data }) => {
   return (

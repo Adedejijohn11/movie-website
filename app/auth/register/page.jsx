@@ -20,10 +20,10 @@ export default function Register() {
 
   return (
     <div
-      style={{
-        backgroundImage: "url('/images/login-bg.jpg')",
-      }}
-      className="min-h-screen h-auto w-full  bg-cover bg-center bg-no-repeat"
+      // style={{
+      //   backgroundImage: "url('/images/login-bg.jpg')",
+      // }}
+      className="min-h-screen h-auto w-full "
     >
       <div className="relative min-h-screen h-full w-full flex flex-col items-center justify-center bg-black/80">
         <div className=" absolute top-3 right-3 md:right-6 w-full flex justify-end items-center text-[14px] md:text-[15px] lg:text-[20px] ">
@@ -107,9 +107,12 @@ export default function Register() {
             </div>
           </form>
 
-          <button className="h-[50px] w-full md:w-[473px] rounded-[10px] bg-red-500 hover:bg-red-700 mt-15 text-[20px] font-bold">
+          <Link
+            href="/auth/login"
+            className="h-[50px] w-full md:w-[473px] flex items-center justify-center rounded-[10px] bg-red-500 hover:bg-red-700 mt-15 text-[20px] font-bold"
+          >
             Continue
-          </button>
+          </Link>
           <div className="flex  w-[270px] md:w-[473px]   mt-4">
             <div className="flex items-center">
               <input type="checkbox" />

@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
-import { MdFilterList } from "react-icons/md";
-import { FaPlay, FaPlus } from "react-icons/fa";
-import { IoMdVideocam } from "react-icons/io";
-import { useTMBD } from "../../contexts/TMDBContext";
-import { getImageUrl } from "../../lib/randfunctions";
-import SearchCard from "../../components/ui/Cards/searchCard";
+// import { MdFilterList } from "react-icons/md";
+// import { FaPlay, FaPlus } from "react-icons/fa";
+// import { IoMdVideocam } from "react-icons/io";
+import { useTMBD } from "@/contexts/TMDBContext";
+import SearchCard from "@/components/ui/Cards/searchCard";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,77 +22,69 @@ export default function Search() {
     error,
   } = useTMBD();
 
-  const filters = [
-    { id: "all", label: "All" },
-    { id: "movies", label: "Movies" },
-    { id: "tv", label: "TV Shows" },
-    { id: "people", label: "People" },
-  ];
+  // const filters = [
+  //   { id: "all", label: "All" },
+  //   { id: "movies", label: "Movies" },
+  //   { id: "tv", label: "TV Shows" },
+  //   { id: "people", label: "People" },
+  // ];
 
-  const genres = [
-    "Action",
-    "Comedy",
-    "Drama",
-    "Horror",
-    "Romance",
-    "Sci-Fi",
-    "Thriller",
-    "Documentary",
-  ];
-
-  console.log("====================================");
-  console.log(searchQuery);
-  console.log("====================================");
+  // const genres = [
+  //   "Action",
+  //   "Comedy",
+  //   "Drama",
+  //   "Horror",
+  //   "Romance",
+  //   "Sci-Fi",
+  //   "Thriller",
+  //   "Documentary",
+  // ];
 
   // Mock search results for design
-  const mockResults = [
-    {
-      id: 1,
-      title: "The Dark Knight",
-      type: "movie",
-      year: "2008",
-      rating: "9.0",
-      poster: "/images/movie-2.jpg",
-      genre: "Action, Crime, Drama",
-    },
-    {
-      id: 2,
-      title: "Breaking Bad",
-      type: "tv",
-      year: "2008-2013",
-      rating: "9.5",
-      poster: "/images/movie-3.jpg",
-      genre: "Crime, Drama, Thriller",
-    },
-    {
-      id: 3,
-      title: "Inception",
-      type: "movie",
-      year: "2010",
-      rating: "8.8",
-      poster: "/images/movie-4.jpg",
-      genre: "Action, Sci-Fi, Thriller",
-    },
-    {
-      id: 4,
-      title: "Stranger Things",
-      type: "tv",
-      year: "2016-2022",
-      rating: "8.7",
-      poster: "/images/movie-5.jpg",
-      genre: "Drama, Fantasy, Horror",
-    },
-  ];
+  // const mockResults = [
+  //   {
+  //     id: 1,
+  //     title: "The Dark Knight",
+  //     type: "movie",
+  //     year: "2008",
+  //     rating: "9.0",
+  //     poster: "/images/movie-2.jpg",
+  //     genre: "Action, Crime, Drama",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Breaking Bad",
+  //     type: "tv",
+  //     year: "2008-2013",
+  //     rating: "9.5",
+  //     poster: "/images/movie-3.jpg",
+  //     genre: "Crime, Drama, Thriller",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Inception",
+  //     type: "movie",
+  //     year: "2010",
+  //     rating: "8.8",
+  //     poster: "/images/movie-4.jpg",
+  //     genre: "Action, Sci-Fi, Thriller",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Stranger Things",
+  //     type: "tv",
+  //     year: "2016-2022",
+  //     rating: "8.7",
+  //     poster: "/images/movie-5.jpg",
+  //     genre: "Drama, Fantasy, Horror",
+  //   },
+  // ];
 
   const handleSearch = (e) => {
     e.preventDefault();
     searchMovies(`/search/movie?query=${searchQuery}`);
     SearchTv(`/search/tv?query=${searchQuery}`);
   };
-
-  console.log("====================================");
-  console.log("Movies:", searchMoviesData);
-  console.log("====================================");
 
   return (
     <div className="min-h-screen bg-background">

@@ -1,9 +1,21 @@
+// import Image from "next/image";
+
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className=" flex flex-col h-screen w-full bg-[url('/images/sky.jpg')] bg-top bg-cover ">
-      <div className=" h-[75%] w-full bg-gray-800/80 border-b-3 border-x-3 border-blue-400/80 rounded-b-[100px] shadow-lg shadow-blue-400/50 flex items-center justify-center lg:justify-start px-0 md:px-[100px] ">
+    <div className="relative flex flex-col h-screen w-full ">
+      <Image
+        src="/images/sky.jpg"
+        alt="background-img"
+        width={500}
+        height={100}
+        className="h-full w-[100%] object-cover"
+      />
+
+      {/* {loaded && ( */}
+      <div className="absolute inset-0  h-[60%] md:h-[75%] w-full bg-gray-800/80 border-b-3 border-x-3 border-blue-400/80 rounded-b-[100px] shadow-lg shadow-blue-400/50 flex items-center justify-center lg:justify-start px-0 md:px-[100px] ">
         <div className="flex flex-col items-center lg:items-start bg-amber-00">
           <h1 className="text-5xl md:text-7xl text-white font-bold tracking-[18px] ">
             CINEMA
@@ -15,13 +27,14 @@ export default function Home() {
             Basic subscription plan for $9.99
           </p>
           <Link
-            href="/auth/register"
+            href="/auth/login"
             className="mt-4 px-18 py-[13px] font-semibold bg-blue-400 text-white text-lg rounded-full hover:bg-blue-400/80"
           >
-            Sign up now
+            Login now
           </Link>
         </div>
       </div>
+      {/* )} */}
     </div>
   );
 }

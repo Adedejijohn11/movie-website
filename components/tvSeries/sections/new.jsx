@@ -7,12 +7,13 @@ const NewlyAdded = () => {
       <h1 className="text-[16px] md:text-[20px] lg:text-[25px]">Newly added</h1>
 
       <div className="h-full w-full flex flex-col lg:flex-row gap-6 bg-amber-00">
-        <div
-          className="h-[280px] lg:h-[350px] w-full lg:w-[40%] rounded-2xl bg-white bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/gallery.jpg')",
-          }}
-        ></div>
+        <Image
+          src="/images/gallery.jpg"
+          alt="/"
+          width={400}
+          height={200}
+          className="h-[280px] lg:h-[350px] w-full lg:w-[40%] rounded-2xl bg-white bg-cover bg-center bg-no-repeat "
+        />
         <div className="h-auto lg:h-[350px] w-full lg:w-[50%] bg-green-00">
           <h1 className="text-[20px] md:text-[28px] font-bold text-highlight">
             The Art of Second Chances

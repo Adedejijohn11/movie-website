@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getImageUrl } from "../../../lib/randfunctions";
+import { getImageUrl } from "@/lib/randfunctions";
+import Image from "next/image";
 
 const TvSeriesCard = ({ item }) => {
   // Construct the full TMDB image URL
@@ -11,7 +12,7 @@ const TvSeriesCard = ({ item }) => {
   return (
     <Link href={`/tvseries/${item.id}`}>
       <div className="relative h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px] flex  justify-center shrink-0  rounded-[9px]  cursor-pointer overflow-hidden ">
-        <img
+        <Image
           className="h-[150px] md:h-[195px] lg:h-[230px]  w-[107px]  md:w-[150px] lg:w-[188px]  object-cover"
           src={getImageUrl(item.backdrop_path)}
           alt={
@@ -21,6 +22,7 @@ const TvSeriesCard = ({ item }) => {
             item.name ||
             "Movie poster"
           }
+          fill
         />
         <div className=" absolute top-0 h-full w-full bg-black/60"></div>
         <div className="absolute top-0 z-30  h-full w-[80%] flex   justify-center items-center text-center">

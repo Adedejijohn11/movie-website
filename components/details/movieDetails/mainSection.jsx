@@ -1,20 +1,52 @@
 import React from "react";
+import { FaPlay } from "react-icons/fa";
+import { IoMdVideocam } from "react-icons/io";
 import MovieCard from "../../ui/Cards/movieCard";
 
-const MainSection = ({ data }) => {
+const MainSection = ({ data, movieDetails }) => {
   return (
-    <div className="h-full w-full flex flex-col mt-10">
-      <h1 className="text-[16px] md:text-[20px] lg:text-[25px] pl-[20px] ">
-        More like this
-      </h1>
+    <div className="h-full w-[90%] flex flex-col items-center   overflow-y-scroll md:overflow-visible  scroll-smooth scrollbar-hide pt-5 ">
+      <div className=" h-full  w-full  z-30 flex flex-col lg:flex-row justify-between items-center mb-5 ">
+        <div className="h-auto w-full lg:w-[60%] flex justify-center items-center   ">
+          <div className="flex flex-col mx-4  mt-0">
+            <h1 className="text-[25px] md:text-[30px] lg:text-[55px] font-bold text-highlight ">
+              {movieDetails?.title || movieDetails?.original_title}
+            </h1>
+            <p className="text-[15px] md:text-[16px] lg:text-[20px] ">
+              {movieDetails?.genres?.map((genre) => genre.name).join(", ")}
+            </p>
+            <p className="text-[15px] md:text-[16px] lg:text-[20px]  mt-0 md:mt-2 lg:mt-3">
+              {movieDetails?.release_date}
+            </p>
 
-      <div
-        className="h-full w-full mt-2 gap-2 lg:gap-10 grid grid-cols-3 md:grid-cols-4 
+            <p className="text-[15px] md:text-[16px] lg:text-[20px]   mt-0 md:mt-2 lg:mt-3">
+              {movieDetails?.overview}
+            </p>
+            <div className="flex flex-col md:flex-row  gap-2 mt-5 lg:mt-10">
+              <button className="flex flex-row items-center justify-center gap-3 px-3   md:px-10  py-[12px] lg:py-[13px] font-semibold bg-blue-400 text-white text-[15px] lg:text-[16px] xl:text-[18px] rounded-[10px] md:rounded-full hover:bg-blue-400/80">
+                <FaPlay />
+                <p>Watch now</p>
+              </button>
+              <button className="flex items-center justify-center gap-3 px-10 lg:px-15 py-[12px] lg:py-[13px] font-semibold border-2  hover:border-amber-500 text-highlight hover:text-amber-500 text-[15px] lg:text-[18px] text-center rounded-[10px] md:rounded-full">
+                <IoMdVideocam /> Watch trailer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-auto w-full flex flex-col mt-5">
+        <h1 className="text-[16px] md:text-[20px] lg:text-[25px] pl-[20px] ">
+          More like this
+        </h1>
+
+        <div
+          className="h-full w-full mt-2 gap-2 lg:gap-10 grid grid-cols-3 md:grid-cols-4 
       lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] place-items-center"
-      >
-        {data?.map((item) => (
-          <MovieCard key={item.id} item={item} />
-        ))}
+        >
+          {data?.map((item) => (
+            <MovieCard key={item.id} item={item} />
+          ))}
+        </div>
       </div>
     </div>
   );

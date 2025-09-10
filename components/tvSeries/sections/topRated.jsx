@@ -1,5 +1,5 @@
 import React from "react";
-import TvSeriesCard from "../../ui/Cards/tvSeriesCard";
+import TvSeriesCard from "@/components/ui/Cards/tvSeriesCard";
 
 const TopRated = ({ data }) => {
   return (

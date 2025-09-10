@@ -1,4 +1,4 @@
-const ContinueSection = ({ data }) => {
+const ContinueSection = () => {
   return (
     <div className="h-[188px] md:h-[238px] lg:h-[278px] w-full flex flex-col  ">
       <h1 className="text-[16px] md:text-[20px] lg:text-[25px]">

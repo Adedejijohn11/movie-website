@@ -1,85 +1,47 @@
 "use client";
 
 import React, { useState } from "react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { FaPlay } from "react-icons/fa";
+import { IoMdVideocam } from "react-icons/io";
+import Seasons from "@/components/details/TvseriesDetails/seasons";
+// import { useTMBD } from "@/contexts/TMDBContext";
 
-// this is the seasonmovies that i pass from the parent component to the mainsection
-import { seasonMovies } from "../../../data/index";
-{
-  /* <MainSection seasonMovies={seasonMovies} /> */
-}
-
-const MainSection = () => {
-  const [seasonOpen, setSeasonOpen] = useState(false);
-  const [selectionSeason, setSelectionSeason] = useState("Season 1");
-  const seasons = Object.keys(seasonMovies);
-
-  const toggleSeason = () => {
-    setSeasonOpen(!seasonOpen);
-  };
-
-  const handleSelect = (season) => {
-    setSelectionSeason(season);
-    setSeasonOpen(false);
-  };
+const MainSection = ({ seriesDetailsData }) => {
+  // const { seriesDetailsData } = useTMBD();
 
   return (
-    <div className="h-full w-[93%] mt-6 flex flex-col ">
-      <div className="flex flex-col ">
-        {/* Season selection */}
-        <div className=" relative  w-auto ">
-          <button
-            onClick={toggleSeason}
-            className=" h-[20%] w-[140px] py-[10px] px-2  flex items-center justify-between   border-2  hover:border-amber-500 text-highlight hover:text-amber-500 text-[15px] lg:text-[18px] rounded-full"
-          >
-            <p>{selectionSeason}</p>
-            <MdKeyboardArrowDown />
-          </button>
+    <div className="h-full  w-[90%] mt-6 flex flex-col overflow-y-scroll md:overflow-visible  scroll-smooth scrollbar-hide pt-5  ">
+      <div className=" h-full  w-full  z-30 flex flex-col lg:flex-row justify-between items-center mb-5 ">
+        <div className="h-auto w-full lg:w-[60%] flex justify-center items-center   ">
+          <div className="flex flex-col mt-0">
+            <h1 className="text-[25px] md:text-[30px] lg:text-[55px] font-bold text-highlight ">
+              {seriesDetailsData?.original_name}
+            </h1>
+            <p className="text-[15px] md:text-[16px] lg:text-[20px] ">
+              {seriesDetailsData?.genres?.map((genre) => genre.name).join(", ")}
+            </p>
+            <p className="text-[15px] md:text-[16px] lg:text-[20px]  mt-0 md:mt-2 lg:mt-3">
+              {seriesDetailsData?.release_date ||
+                seriesDetailsData?.first_air_date}
+            </p>
 
-          {seasonOpen && (
-            <div className=" absolute top-12 left-3 h-auto w-[120px] flex flex-col items-center  bg-white text-gray-600 border-b-3 border-white/80 shadow-lg shadow-white/50 rounded-md">
-              {seasons.map((season) => (
-                <div
-                  key={season}
-                  onClick={() => handleSelect(season)}
-                  className=" h-[25px] w-full py-[10px] px-1 flex items-center  hover:bg-blue-500 hover:text-white text-[18px] "
-                >
-                  {season}
-                </div>
-              ))}
+            <p className="text-[15px] md:text-[16px] lg:text-[20px]   mt-0 md:mt-2 lg:mt-3">
+              {seriesDetailsData?.overview}
+            </p>
+            <div className="flex flex-col md:flex-row  gap-2 mt-5 lg:mt-10">
+              <button className="flex flex-row items-center justify-center gap-3 px-3   md:px-10  py-[12px] lg:py-[13px] font-semibold bg-blue-400 text-white text-[15px] lg:text-[16px] xl:text-[18px] rounded-[10px] md:rounded-full hover:bg-blue-400/80">
+                <FaPlay />
+                <p>Watch now</p>
+              </button>
+              <button className="flex items-center justify-center gap-3 px-10 lg:px-15 py-[12px] lg:py-[13px] font-semibold border-2  hover:border-amber-500 text-highlight hover:text-amber-500 text-[15px] lg:text-[18px] text-center rounded-[10px] md:rounded-full">
+                <IoMdVideocam /> Watch trailer
+              </button>
             </div>
-          )}
+          </div>
         </div>
-
-        <div
-          className="h-[80%] w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
-        
-         gap-2 lg:gap-4 mt-6 "
-        >
-          {seasonMovies[selectionSeason].map((item) => (
-            <div
-              key={item.id}
-              className="w-auto md:w-[340px] lg:w-[305px] xl:w-[420px]  "
-            >
-              <div className="h-[150px] md:h-[300px] w-[150px] md:w-[340px] lg:w-[305px] xl:w-[420px] rounded-[9px] flex justify-center overflow-hidden bg-white text-black ">
-                <img
-                  className="h-[150px] md:h-[300px] w-[150px] md:w-[340px] lg:w-[420px]"
-                  src={item.poster}
-                  alt="cat"
-                />
-              </div>
-              <div className=" mt-3  ">
-                <h1 className="text-[18px] font-bold">
-                  Ep.{item.id}: {item.title}
-                </h1>
-                <p className="text-[16px] ">
-                  The Johnsons face a crisis when their secret family recipe
-                  goes missing just before a big restaurant review.
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div>
+        <Seasons />
       </div>
     </div>
   );

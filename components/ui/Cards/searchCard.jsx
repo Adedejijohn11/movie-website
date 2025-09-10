@@ -1,10 +1,11 @@
 "use client";
 
-import { getImageUrl } from "../../../lib/randfunctions";
+import { getImageUrl } from "@/lib/randfunctions";
 import { MdFilterList } from "react-icons/md";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { IoMdVideocam } from "react-icons/io";
 import Link from "next/link";
+import Image from "next/image";
 
 const SearchCard = ({ item, type }) => {
   return (
@@ -14,9 +15,11 @@ const SearchCard = ({ item, type }) => {
         className="group bg-gray-800/30 border border-gray-700 rounded-lg overflow-hidden hover:border-highlight/50 transition-all duration-300 hover:transform hover:scale-105"
       >
         <div className="relative">
-          <img
+          <Image
             src={getImageUrl(item?.poster_path)}
-            alt={item?.title}
+            alt="search-movies"
+            width={100}
+            height={100}
             className="w-full h-64 object-cover"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

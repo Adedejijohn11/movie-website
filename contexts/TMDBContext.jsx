@@ -1,10 +1,6 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-} from "react";
+"use client";
+
+import React, { createContext, useContext, useState, useCallback } from "react";
 import axios from "axios";
 
 const TMDBContext = createContext();
@@ -12,18 +8,28 @@ const TMDBContext = createContext();
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-export const TMDBProvider = ({ children }) => {
-  const [movieData, setMovieData] = useState([]);
-  const [tvData, setTvData] = useState([]);
-  const [trendingData, setTrendingData] = useState([]);
-  const [similarMoviesData, setSimilarMoviesData] = useState([]);
+export const TMDBProvider = ({
+  children,
+  initialMovies = [],
+  initialTv = [],
+  initialTrending = [],
+  initialSimilarMovies = [],
+  initialtopRated = [],
+}) => {
+  // Preloaded server-side data
+  const [movieData, setMovieData] = useState(initialMovies);
+  const [tvData, setTvData] = useState(initialTv);
+  const [trendingData, setTrendingData] = useState(initialTrending);
+  const [similarMoviesData, setSimilarMoviesData] =
+    useState(initialSimilarMovies);
+  // Unique per-page or client fetch data
+  const [topRatedData, setTopRatedData] = useState(initialtopRated);
   const [movieDetailsData, setMovieDetailsData] = useState({});
-  const [topRatedData, setTopRatedData] = useState([]);
   const [seriesDetailsData, setSeriesDetailsData] = useState({});
   const [searchMoviesData, setSearchMoviesData] = useState([]);
   const [searchTvData, setSearchTvData] = useState([]);
-
-  const [loading, setLoading] = useState(true);
+  // Loading and error only for active client fetches
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // fetchMovies

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdArrowForwardIos } from "react-icons/md";
-import { headerData } from "../../data";
+import { headerData } from "@/data/index";
 
 const Header = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,7 +20,7 @@ const Header = () => {
           img.onload = resolve;
           img.onerror = resolve;
         });
-        setLoadedImages(prev => new Set(prev).add(item.img));
+        setLoadedImages((prev) => new Set(prev).add(item.img));
       }
     };
     preloadImages();
@@ -34,7 +34,7 @@ const Header = () => {
       const img = new Image();
       img.src = nextItem.img;
       img.onload = () => {
-        setLoadedImages(prev => new Set(prev).add(nextItem.img));
+        setLoadedImages((prev) => new Set(prev).add(nextItem.img));
       };
     }
   };
@@ -46,7 +46,8 @@ const Header = () => {
   };
 
   const handleLeftSlide = () => {
-    const newIndex = currentIndex === 0 ? headerData.length - 1 : currentIndex - 1;
+    const newIndex =
+      currentIndex === 0 ? headerData.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     preloadNextImage(newIndex);
   };
@@ -65,19 +66,16 @@ const Header = () => {
         {headerData.map((item, index) => (
           <div
             key={item.id}
-            style={{ 
-              backgroundImage: loadedImages.has(item.img) ? `url(${item.img})` : 'none',
-              backgroundColor: loadedImages.has(item.img) ? 'transparent' : '#1f2937'
+            style={{
+              backgroundImage: loadedImages.has(item.img)
+                ? `url(${item.img})`
+                : "none",
+              backgroundColor: loadedImages.has(item.img)
+                ? "transparent"
+                : "#1f2937",
             }}
             className="w-full h-full bg-center bg-cover relative flex-shrink-0"
           >
-            {/* Loading placeholder */}
-            {!loadedImages.has(item.img) && (
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="animate-pulse bg-gray-600 w-32 h-8 rounded"></div>
-              </div>
-            )}
-
             {/* Gradient */}
             <div className="w-full h-full absolute top-0 left-0 bg-black/20"></div>
 
