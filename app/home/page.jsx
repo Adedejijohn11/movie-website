@@ -1,37 +1,14 @@
 "use client";
 
-// import React, { useEffect } from "react";
 import Header from "@/components/home/header";
 import BrandSection from "@/components/home/sections/brandnewSection";
-// import ContinueSection from "@/components/home/sections/continueSection";
 import CollectionSection from "@/components/home/sections/collectionsSection";
 import TvSection from "@/components/home/sections/tvSection";
 import TrendingSection from "@/components/home/sections/trendingSection";
 import { useTMBD } from "@/contexts/TMDBContext";
 
 const Home = () => {
-  const {
-    // fetchMovies,
-    // fetchTvShows,
-    // fetchTrending,
-    movieData,
-    tvData,
-    trendingData,
-    loading,
-    error,
-  } = useTMBD();
-
-  // console.log("tv Data:", tvData);
-
-  // useEffect(() => {
-  //   fetchMovies(
-  //     "/discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
-  //   );
-  //   fetchTvShows(
-  //     "/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc"
-  //   );
-  //   fetchTrending("/trending/movie/day?language=en-US");
-  // }, [fetchMovies, fetchTvShows, fetchTrending]);
+  const { movieData, tvData, trendingData, loading, error } = useTMBD();
 
   if (loading) {
     return (
