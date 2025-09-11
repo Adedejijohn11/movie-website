@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ConditionalNavbar from "@/components/navbar/conditionalNavbar";
 import { TMDBProvider } from "@/contexts/TMDBContext";
-// import { metadata } from "./layoutmetadata";
+// import metadata from "@/app/layoutmetadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
