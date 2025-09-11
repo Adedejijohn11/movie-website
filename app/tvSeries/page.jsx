@@ -1,10 +1,10 @@
 "use client";
 
 import { useTMBD } from "@/contexts/TMDBContext";
-import Featured from "@/components/tvSeries/sections/featured";
-import NewlyAdded from "@/components/tvSeries/sections/new";
-import Critically from "@/components/tvSeries/sections/Critically";
-import TopRated from "@/components/tvSeries/sections/topRated";
+import Featured from "@/components/tvseries/sections/featured";
+import NewlyAdded from "@/components/tvseries/sections/new";
+import Critically from "@/components/tvseries/sections/Critically";
+import TopRated from "@/components/tvseries/sections/topRated";
 
 const page = () => {
   const { tvData, topRatedData, loading, error } = useTMBD();
