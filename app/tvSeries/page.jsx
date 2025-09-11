@@ -4,7 +4,7 @@ import { useTMBD } from "@/contexts/TMDBContext";
 import Featured from "@/components/tvseries/sections/featured";
 import NewlyAdded from "@/components/tvseries/sections/new";
 import Critically from "@/components/tvseries/sections/Critically";
-import TopRated from "@/components/tvseries/sections/topRated";
+import TopRated from "@/components/tvseries/sections/Critically";
 
 const page = () => {
   const { tvData, topRatedData, loading, error } = useTMBD();
