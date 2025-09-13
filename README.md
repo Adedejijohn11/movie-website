@@ -1,8 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cinema Movies Website
 
-## Getting Started
+A user-friendly movie website that allows users to browse new releases, select movies by category, view detailed information, and search for films seamlessly. This project demonstrates modern web development practices with a focus on usability, responsiveness, and smooth user experience.
 
-First, run the development server:
+## Features
+
+- Browse the latest movies , Tv series and
+- Select movies by category (Action, Comedy, Drama, etc.)
+- View detailed movie information (title,description and release date)
+- Search for movies quickly and efficiently
+- Responsive design for desktop and mobile devices
+
+## Technologies Used
+
+- _Frontend:_ Nextjs,CSS and JavaScript
+- _State Management:_ React Hooks (useState, useEffect)
+- _API:_ TMDB API [https://developer.themoviedb.org/reference/intro/getting-started]
+- \_placeholder image: data folder
+- _Other Tools:_ Fetch API for HTTP requests, CSS frameworks (Tailwind)
+
+## Installation
+
+1. Clone the repository:
+
+````bash
+git clone https://github.com/Adedejijohn11/movie-website.git
+
+
+2. Install dependencies
+
+```bash
+npm install
+
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -12,57 +42,50 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+when open the link click on Login now
+navigate to login page then click on login without info
+select any user to watch
+Browse movies on the homepage.
+Click on a movie to view detailed information.
+click on Tvseries page watch series
+Use the search bar to find a specific movie.
 
-## Learn More
+## Root
 
-To learn more about Next.js, take a look at the following resources:
+- app - for pages and routes
+- components - for the props pass to the pages
+- contexts - for global api fetching
+- data - the placeholder data used for homepage header
+- lib - to get tmdb api image
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages / Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The website includes the following routes:
 
-## Deploy on Vercel
+- app/page - Welcome page
+- /auth/login - login page
+- /auth/register - register page
+- / Home page (highlights Brand new releases, Collections, Interesting Tv Shows and Trending)
+- /Tv series – Browse all tv series
+- /Tv series/:id – series details page
+- /movies – Browse all movies
+- /movies/:id – Movie details page
+- /search – Search results page for finding movies quickly
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- /components/details - includes the id details for tvseriesdetails and moviesdetails
+- /components/home - includes the home header and sections
+- /components/movies - includes the movies header and mainSections
+- /components/navbar - includes the navbar and conditionalnavbar(to hide navbar on profile page)
+- /components/tvseries - includes the tvseries sections
+- /components/ui - includes the tvseriesCards, moviesCards and searchCard
 
-
-## Website Pages:
-
-```bash
-/home
-```
-
-```bash
-/movies
-```
-
-```bash
-/movies/id
-```
-
-```bash
-/tvseries
-```
-
-```bash
-/tvseries/id
-```
-
-```bash
-/search
-```
-
-This is a movie site, it's an MVP movie website built for 
+This is a movie site, it's an MVP movie website built for
 learing popurse but it has the major functionalities.
-
-
