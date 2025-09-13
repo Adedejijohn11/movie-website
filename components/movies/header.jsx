@@ -2,18 +2,24 @@ import React from "react";
 import Image from "next/image";
 import { FaPlay } from "react-icons/fa";
 import { IoMdVideocam } from "react-icons/io";
+import { getImageUrl } from "@/lib/randfunctions";
+import { useTMBD } from "@/contexts/TMDBContext";
 
 const Header = () => {
+  const { movieData } = useTMBD();
+
   return (
     <div
-      style={{ backgroundImage: "url(/images/Bg-gallery.jpg)" }}
+      style={{
+        backgroundImage: `url(${getImageUrl(movieData?.[0]?.backdrop_path)})`,
+      }}
       className="relative h-[600px]  w-full bg-cover bg-center flex items-center justify-center border-b-3 border-blue-400/80 shadow-lg shadow-blue-400/50"
     >
       <div className=" absolute top-0 right-0 h-[600px] w-full bg-black/80"></div>
       <div className="relative h-full lg:h-[480px] w-full lg:w-[93%] z-40 flex flex-col lg:flex-row justify-between items-center ">
         <div className="relative h-full lg:h-[480px] w-full lg:w-[40%]  flex items-center  justify-center  ">
           <Image
-            src="/Images/gallery.jpg"
+            src={getImageUrl(movieData?.[0]?.poster_path)}
             alt="/"
             width={600}
             height={200}
