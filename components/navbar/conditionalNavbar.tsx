@@ -15,8 +15,9 @@ export default function ConditionalNavbar() {
     pathname === "/auth/login" ||
     pathname === "/auth/register" ||
     pathname === "/mylist" ||
-    //  hide only detail pages like /movies/123
-    (pathname.startsWith("/movies/") && pathname !== "/movies")
+    //  hide only detail pages like /movies/123 or /tvseries/123
+    (pathname.startsWith("/movies/") && pathname !== "/movies") ||
+    (pathname.startsWith("/tvseries/") && pathname !== "/tvseries")
   ) {
     return null;
   }
