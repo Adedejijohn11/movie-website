@@ -2,12 +2,20 @@
 
 import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import { GoPlus } from "react-icons/go";
+import { IoCheckmark } from "react-icons/io5";
 import { IoMdVideocam } from "react-icons/io";
 import Seasons from "@/components/details/TvseriesDetails/seasons";
-// import { useTMBD } from "@/contexts/TMDBContext";
+import { useTMBD } from "@/contexts/TMDBContext";
 
 const MainSection = ({ seriesDetailsData }) => {
-  // const { seriesDetailsData } = useTMBD();
+  const { Addtolist } = useTMBD();
+  const [edit, setEdit] = useState(true);
+
+  const handleList = () => {
+    Addtolist(seriesDetailsData);
+    setEdit(!edit);
+  };
 
   return (
     <div className="h-full  w-[90%] mt-6 flex flex-col overflow-y-scroll md:overflow-visible  scroll-smooth scrollbar-hide pt-5  ">
@@ -36,6 +44,16 @@ const MainSection = ({ seriesDetailsData }) => {
               <button className="flex items-center justify-center gap-3 px-10 lg:px-15 py-[12px] lg:py-[13px] font-semibold border-2  hover:border-amber-500 text-highlight hover:text-amber-500 text-[15px] lg:text-[18px] text-center rounded-[10px] md:rounded-full">
                 <IoMdVideocam /> Watch trailer
               </button>
+            </div>
+            <div className="w-[80px] md:w-[100px] flex flex-col mt-5 ml-[10px] ">
+              <button
+                type="button"
+                onClick={handleList}
+                className="w-full text-[25px] md:text-[30px] flex items-center justify-center font-bold"
+              >
+                {edit ? <GoPlus /> : <IoCheckmark />}
+              </button>
+              <p className="text-[15px] md:text-[20px]  ">Add to List</p>
             </div>
           </div>
         </div>

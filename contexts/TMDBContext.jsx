@@ -31,6 +31,7 @@ export const TMDBProvider = ({
   // Loading and error only for active client fetches
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [myList, setMyList] = useState([]);
 
   // fetchMovies
   const fetchMovies = useCallback(async (endpoint) => {
@@ -306,6 +307,15 @@ export const TMDBProvider = ({
     }
   }, []);
 
+  // AddtoList
+  const Addtolist = (movie) => {
+    setMyList((prevList) => {
+      if (prevList.find((item) => item.id === movie.id)) return prevList;
+
+      return [...prevList, movie];
+    });
+  };
+
   return (
     <TMDBContext.Provider
       value={{
@@ -329,6 +339,10 @@ export const TMDBProvider = ({
         searchMoviesData,
         SearchTv,
         searchTvData,
+        setMovieData,
+        setMyList,
+        Addtolist,
+        myList,
       }}
     >
       {children}
