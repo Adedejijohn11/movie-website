@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import axios from "axios";
 
 const TMDBContext = createContext();
@@ -22,8 +28,8 @@ export const TMDBProvider = ({
   const [trendingData, setTrendingData] = useState(initialTrending);
   const [similarMoviesData, setSimilarMoviesData] =
     useState(initialSimilarMovies);
-  // Unique per-page or client fetch data
   const [topRatedData, setTopRatedData] = useState(initialtopRated);
+  // Unique per-page or client fetch data
   const [movieDetailsData, setMovieDetailsData] = useState({});
   const [seriesDetailsData, setSeriesDetailsData] = useState({});
   const [searchMoviesData, setSearchMoviesData] = useState([]);
@@ -31,6 +37,7 @@ export const TMDBProvider = ({
   // Loading and error only for active client fetches
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  // myList
   const [myList, setMyList] = useState([]);
 
   // fetchMovies
@@ -284,10 +291,6 @@ export const TMDBProvider = ({
       });
 
       setSearchTvData(response?.data?.results);
-
-      // console.log("=====================");
-      // console.log(setSearchTvData);
-      // console.log("=====================");
       setError(null);
     } catch (err) {
       console.log("An error occurred");
@@ -315,6 +318,19 @@ export const TMDBProvider = ({
       return [...prevList, movie];
     });
   };
+
+  // Load from localStorage on first mount
+  useEffect(() => {
+    const storedList = localStorage.getItem("myList");
+    if (storedList) setMyList(JSON.parse(storedList));
+  }, []);
+
+  // Save to localStorage whenever myList changes
+  useEffect(() => {
+    localStorage.setItem("myList", JSON.stringify(myList));
+  }, [myList]);
+
+  console.log(myList);
 
   return (
     <TMDBContext.Provider

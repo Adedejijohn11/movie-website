@@ -10,7 +10,7 @@ import Image from "next/image";
 import { getImageUrl } from "@/lib/randfunctions";
 
 const page = () => {
-  const { myList, setMyList } = useTMBD();
+  const { myList, setMyList, loading } = useTMBD();
   const [edit, setEdit] = useState(true);
 
   const handleEdit = () => {
